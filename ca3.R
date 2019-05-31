@@ -1,4 +1,5 @@
-# Reading the dataset bhosdaa
+# Reading the dataset 
+getwd()
 df <- read.csv("ca3_dataset.csv")
 str(df)
 View(df)          
@@ -11,7 +12,7 @@ View(suraj)
 str(suraj)
 
 # Performing the normality test
-# Bhosdaa
+
 normal_daru <- shapiro.test(suraj$Dairy.products)
 normal_daru
 normal_daru1 <- shapiro.test(suraj$Bakery.products)
@@ -56,3 +57,7 @@ cohen.ES(test = c("chisq"), size = c("small"))
 res_suraj <- cor.test(suraj$Dairy.products, suraj$Bakery.products,
                       method = "spearman")
 res_suraj
+
+
+
+write.csv(suraj, file = "suraj_final.csv", row.names = FALSE)
